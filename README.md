@@ -25,8 +25,7 @@ Ensure you have the following installed:
 ### 🛠️ Installation
 
 ```bash
-git clone https://github.com/Rebof/your-repo-name.git
-cd your-repo-name
+git clone https://github.com/Rebof/Intuji-QA-Associate-Challenge
 npm init -y
 npm install cypress faker
 npx cypress open
