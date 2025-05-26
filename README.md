@@ -99,7 +99,7 @@ npx cypress open
 - **Initial Commit Size:**  
   The uploaded repo may contain large pre-installed folders like `node_modules`. Clean and reinstall as shown above for stability.
 
-- **Test Case Bug – `TC_UI_007`:**  
+- **Test Case Bug – `TC_PO_007`:**  
   Invalid product pages still render product details due to a **known frontend issue**. This test is expected to fail until resolved.
 
 ---
