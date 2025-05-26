@@ -120,3 +120,39 @@ Cypress.Commands.add("createUserWithApi",(user)=>{
         
     })
 })
+
+
+Cypress.Commands.add("addProductToCart", (productId, quantity = 1) => {
+  
+  cy.visit(`/product_details/${productId}`);
+
+  cy.get("#quantity").clear().type(quantity);
+
+  cy.get("button[type='button']").click(); // Add to cart button
+
+  cy.get(".modal-footer > .btn").click();
+});
+
+
+
+Cypress.Commands.add("removeProductFromCart", (productId) => {
+  cy.get(`#product-${productId} .cart_quantity_delete`).click();
+});
+
+Cypress.Commands.add("verifyAddress", (id, user) => {
+  cy.get(id).within(() => {
+    cy.get(".address_address1").should("contain", user.address1);
+    cy.get('.address_city').should("contain", user.city);
+    cy.get('.address_country_name').should("contain", user.country);
+  });
+});
+
+
+Cypress.Commands.add("enterPaymentDetails", () => {
+  cy.get('[data-qa="name-on-card"]').type("Sanima Bank's Card");
+  cy.get('[data-qa="card-number"]').type("12345");
+  cy.get('[data-qa="cvc"]').type("4");
+  cy.get('[data-qa="expiry-month"]').type("DD");
+  cy.get('[data-qa="expiry-year"]').type("2030");
+  cy.get('[data-qa="pay-button"]').click();
+});
