@@ -1,82 +1,132 @@
-## 📁 Project Overview
+# 🧪 E-commerce UI Test Suite with Cypress
 
-This repository contains a Cypress-based UI test suite designed to validate various user flows including registration, login, product search, cart management, and checkout for automationexercise.com.
+This repository contains a **Cypress-based end-to-end (E2E) testing framework** for validating key user flows on [automationexercise.com](https://automationexercise.com). It includes tests for:
 
-## 🖥️ OS Compatibility Notice
+- ✅ User Registration  
+- ✅ Login & Logout  
+- ✅ Product Search  
+- ✅ Cart Management  
+- ✅ Checkout Process  
 
-> ⚠️ **Important for Windows/macOS Users:**
+---
 
-This repository was initialized and configured on a **Linux system**. If you are cloning or downloading this repo on **Windows or macOS**, you may face issues such as:
+## ⚙️ Project Setup
 
-- Incompatibility with shell scripts (e.g., `bash` or `rm` commands).
-- Permissions or path issues with files and folders.
-- Pre-installed folders like `node_modules/`, `.cache/`, or `.git/` being incompatible or bloated.
+### 📦 Prerequisites
 
-### 🔧 Recommended Actions for Windows/macOS Users
+Ensure you have the following installed:
 
-1. After cloning, **delete the `node_modules` folder** if it exists:
-   - On Windows (Command Prompt):
+- [Node.js](https://nodejs.org/)
+- [npm](https://www.npmjs.com/)
+- [Cypress](https://www.cypress.io/)
+
+---
+
+### 🛠️ Installation
+
+```bash
+git clone https://github.com/Rebof/your-repo-name.git
+cd your-repo-name
+npm init -y
+npm install cypress faker
+npx cypress open
+```
+
+---
+
+## ⚠️ OS Compatibility Notice
+
+> 🖥️ This project was originally configured on **Linux**. Windows and macOS users may encounter the following issues:
+
+- Incompatibility with shell scripts (`bash`, `rm`, etc.)
+- Path-related errors or permission issues
+- Presence of pre-existing `node_modules/`, `.cache/`, or `.git/` folders
+
+### ✅ Recommended Fixes
+
+1. **Delete existing `node_modules/` folder:**
+   - **Windows (CMD):**
      ```
      rmdir /s /q node_modules
      ```
-   - On macOS/Linux:
+   - **macOS/Linux:**
      ```
      rm -rf node_modules
      ```
 
-2. Reinstall fresh dependencies:
-   npm init -y
+2. **Reinstall dependencies:**
+   ```bash
    npm install cypress faker
-   npx cypress open
+   ```
 
+3. **Fix permissions (Linux/macOS only):**
+   ```bash
+   chmod -R 755 .
+   ```
 
-4. If you encounter permission issues, try: chmod -R 755
+4. **If Cypress fails to execute**, try:
+   ```bash
+   npx cypress install
+   ```
 
-5. If you get Cypress execution issues, reinstall Cypress
+---
 
+## 🧰 Tools & Technologies
 
-🛠️ Tools & Plugins Used
+| Tool         | Description                             |
+| ------------ | --------------------------------------- |
+| Cypress      | Main E2E testing framework              |
+| Faker        | Dynamic test data generation            |
+| `cy.session()` | Maintains session across test files    |
 
-| Tool           | Purpose                                  |
-| -------------- | ---------------------------------------- |
-| Cypress        | End-to-end testing framework             |
-| Faker          | Generate dynamic fake data               |
-| cy.session()   | Persist user sessions across tests       |
+---
 
+## 📂 Folder Structure
 
-🧱 Folder Structure
+```
 ├── cypress/
-│   ├── e2e/                # Test specs
-│   ├── fixtures/           # Static JSON data
-│   └── support/            # Custom commands and helpers
+│   ├── e2e/           # Test specifications
+│   ├── fixtures/      # Static JSON data
+│   └── support/       # Custom commands and helpers
 ├── node_modules/
-├── package.json
 ├── cypress.config.js
+├── package.json
+```
 
+---
 
-⚠️ Known Limitations
+## 🐞 Known Issues
 
-    Uploaded Full Cypress Folder:
-    Due to initial commit, the full Cypress structure including possible node_modules may be included. It’s recommended to clean and reinstall as outlined above.
+- **Initial Commit Size:**  
+  The uploaded repo may contain large pre-installed folders like `node_modules`. Clean and reinstall as shown above for stability.
 
-    Known Bug in Test Case TC_UI_007:
-    Invalid product detail pages still show product information due to a known frontend bug. This is expected to fail until fixed.
+- **Test Case Bug – `TC_UI_007`:**  
+  Invalid product pages still render product details due to a **known frontend issue**. This test is expected to fail until resolved.
 
-✅ Author
-Rebof Katwal
-📧 rebofkatwal7@gmail.com
-📅 Date: 2025-05-26
+---
 
-Note:
-I have been working on the same project just a few days ago. The previous version was more rigid and less dynamic.
-In this current version, I have enhanced the project to be more dynamic and scalable and improving the overall structure.
-You can find the previous version here: https://github.com/Rebof/Ecommerce-e2e-cypress
-This older repository also includes separate appointment booking tests from a different website and additional test cases as well.
-Due to my prior experience with the project, completing this improved version was much faster.
+## 🔁 Previous Version
 
-Thank you!
+An earlier version of this project, which I had been working on before applying, is available here: 
+🔗 [Old Repo - Ecommerce-e2e-cypress](https://github.com/Rebof/Ecommerce-e2e-cypress)  
+This version includes:
 
+- Appointment booking tests from another platform  
+- More rigid test design  
+- Additional test scenarios
 
+The current repository is a refined, **more dynamic and scalable** version, leveraging my earlier experience for faster and cleaner development.
 
+---
 
+## 👨‍💻 Author
 
+**Rebof Katwal**  
+📧 rebofkatwal7@gmail.com  
+📅 *Last Updated: May 26, 2025*
+
+---
+
+## 🙏 Acknowledgements
+
+Thanks for checking out this repository. Feel free to raise issues or submit PRs if you notice bugs or have suggestions! 🚀
