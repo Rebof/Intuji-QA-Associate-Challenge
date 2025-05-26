@@ -28,23 +28,32 @@ beforeEach(() => {
   };
 });
 
+// afterEach(() => {
+//   cy.visit("/");
+//   cy.get("body").then(($body) => {
+//     if ($body.find("a[href='/logout']").length) {
+//       cy.get("a[href='/logout']").click();
+//     }
+//     cy.url().should("include", "https://www.automationexercise.com/");
+//   });
+// });
 
 describe("User Registration and Session Handling", () => {
   it("should register a user, verify login, and persist session", () => {
-    // Register and persist session
+    // Register and session
     cy.session(user.email, () => {
       cy.visit("/");
       cy.registerUser(user);
     });
 
-    // Reuse the session and verify user is logged in
+    // Reuse the session
     cy.visit("/");
     cy.get("li:nth-child(10) a:nth-child(1)").should(
       "contain",
       `Logged in as ${user.name}`
     );
 
-    // Clean up
+    // delete
     cy.deleteAccount();
   });
 
@@ -60,7 +69,7 @@ describe("User Registration and Session Handling", () => {
 
     cy.logout();
 
-    // Ensure redirected and logged out
+    //logg out assertion
     cy.url().should("include", "/");
     cy.get("a[href='/login']").should("be.visible");
 
@@ -79,18 +88,18 @@ describe("User Registration and Session Handling", () => {
 
 it("register with existing email (via API, then UI attempt)", () => {
   cy.fixture("userInfo").then((user) => {
-    // Step 1: Create user using API
+    // Create user using API
     cy.createUserWithApi(user).then(() => {
       cy.log(`User created via API with email: ${user.email}`);
 
-      // Step 2: Try registering again with same email via UI
+      // Try registering again
       cy.visit("/");
       cy.get("a[href='/login']").click();
       cy.get(".signup-form > h2").should("contain", "New User Signup!");
       cy.get("input[placeholder='Name']").type(user.name);
       cy.get("input[data-qa='signup-email']").type(`${user.email}{enter}`);
 
-      // Step 3: Verify duplicate email error
+      // email error assert
       cy.get(".signup-form > form > p")
         .should("contain", "Email Address already exist!")
         .and("be.visible");
@@ -98,7 +107,7 @@ it("register with existing email (via API, then UI attempt)", () => {
   });
 });
 
-  it.only("Login with valid email but incorrect pw", () => {
+  it("Login with valid email but incorrect pw", () => {
     cy.fixture("userInfo").then((userData) => {
       cy.createUserWithApi(user).then(() => {
         cy.log(`Email used for login: ${userData.email}`);

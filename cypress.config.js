@@ -6,5 +6,6 @@ module.exports = defineConfig({
       // implement node event listeners here
     },
     baseUrl: 'https://www.automationexercise.com/',
+    testIsolation: false
   },
 });
