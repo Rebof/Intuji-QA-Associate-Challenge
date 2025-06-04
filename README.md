@@ -106,7 +106,7 @@ npx cypress open
 
 ## 🔁 Previous Version
 
-An earlier version of this project, which I had been working on before applying, is available here: 
+An earlier version of this project, which I had been working on, is available here: 
 🔗 [Old Repo - Ecommerce-e2e-cypress](https://github.com/Rebof/Ecommerce-e2e-cypress)  
 This version includes:
 
